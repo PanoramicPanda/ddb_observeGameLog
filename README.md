@@ -1,4 +1,6 @@
 # ddb_observeGameLog
+![ddbo.png](ddbo.png)
+
 A Symbiote to watch the D&D Beyond Game Log from a Campaign and report the rolls into TaleSpire.
 
 # Loading into TaleSpire
