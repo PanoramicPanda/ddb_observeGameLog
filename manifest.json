@@ -1,0 +1,36 @@
+{
+  "manifestVersion": 1,
+  "name": "D&D Beyond Game Log Observer",
+  "summary": "A Symbiote to watch the D&D Beyond Game Log from a Campaign and report the rolls into TaleSpire.",
+  "entryPoint": "https://www.dndbeyond.com/my-campaigns",
+  "descriptionFilePath": "/README.md",
+  "version": "1.0",
+  "about": {
+    "website": "https://github.com/PanoramicPanda/ddb_observeGameLog",
+    "authors": [
+      "Uriah Brown"
+    ]
+  },
+  "api": {
+    "version": "0.1",
+    "initTimeout": 10,
+    "interop": {
+      "id": "a078061e-e080-4e48-ba22-8ac32bfce5a6"
+    }
+  },
+  "controls": {
+    "reload": true,
+    "navigation": true
+  },
+  "icons": {
+    "64x64": "/ddbo.png"
+  },
+  "environment": {
+    "capabilities": [
+      "runInBackground"
+    ],
+    "extras": [
+      "/observeGameLog.js"
+    ]
+  }
+}
