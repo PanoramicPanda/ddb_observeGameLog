@@ -1,7 +1,9 @@
 # ddb_observeGameLog
 ![ddbo.png](ddbo.png)
 
-A Symbiote to watch the D&D Beyond Game Log from a Campaign and report the rolls into TaleSpire.
+A Symbiote to watch the D&D Beyond Game Log from a Campaign and report the rolls into TaleSpire. This was made
+for groups who may not have all members within TaleSpire - to allow folks to roll within D&D Beyond and still
+have the results ported to where those in TaleSpire can see the result in the in software chat log.
 
 # Loading into TaleSpire
 Place the `ddb_observeGameLog` folder into `%AppData%\..\LocalLow\BouncyRock Entertainment\TaleSpire\Symbiotes\`.
