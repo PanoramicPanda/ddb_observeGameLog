@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>D&D Beyond Log Observer Preamble</title>
+    <script>
+        function loadExternalPage() {
+            window.location.href = 'https://www.dndbeyond.com/my-campaigns';
+        }
+    </script>
+    <style>
+        body {
+            color: white;
+            background: black;
+        }
+        h2{
+            color: var(--ts-accent-hover);
+        }
+        button, input {
+            background-color: var(--ts-background-secondary);
+            color: var(--ts-color-primary);
+            font-family: 'OptimusPrinceps', sans-serif;
+
+            border: 1px solid var(--ts-accessibility-border);
+            border-radius: 4px;
+            font-size: 1.2em;
+
+            transition: ease-in-out 0.1s;
+        }
+
+        button:hover, input:hover {
+            background-color: var(--ts-background-primary);
+            transition: ease-in-out 0.2s;
+        }
+
+        button:focus-visible, input:focus-visible {
+            outline: 3px solid var(--ts-accessibility-focus);
+            outline-offset: -1px;
+            background-color: var(--ts-background-primary);
+            transition: outline-color 0s;
+        }
+
+        button {
+            background-color: var(--ts-button-background);
+        }
+
+        button:hover {
+            background-color: var(--ts-button-hover);
+        }
+
+        button:focus-visible {
+            background-color: var(--ts-button-hover);
+        }
+        img{margin: 0 auto; padding: 10px;}
+    </style>
+</head>
+<body>
+<div id="textDiv">
+    <h1>Utilizing the Symbiote</h1>
+
+    After logging in and navigating to the My Campaigns page, you'll need to go to the campaign in question and open up the Game Log.
+    <br/>
+
+    <img src='example_images/game_log.png'/>
+
+    <br/>
+    Once it is opened, the Symbiote should attach to the Log and report any D&D Beyond rolls from it into the TaleSpire Chat Log. The Symbiote even has permission to run in the background and will not need to stay open on your screen in order to report, so long as you don't close it from running overall.
+
+    <hr>
+
+    <h2>Warning: Login Issues</h2>
+
+    Symbiotes are currently being detected as a not supported browser by some login methods. They also do not support pop-up logins such as Google. Logging in with a Wizard's account seems to be the most successful way at the moment.
+
+    <h2>Warning: Other D&D Beyond Symbiotes</h2>
+
+    It appears that sometimes having D&D Beyond open in another Symbiote will break the Log Observer. If this happens, try closing the other Symbiote. (Note that I could not replicate this but have had it reported)
+</div>
+<br/>
+<button onclick="loadExternalPage()">I'm ready boss, take me to D&D Beyond</button>
+</body>
+</html>
