@@ -75,7 +75,7 @@ function extractDataFromLi(liElement) {
     const diceResultMath = diceResultMathElement ? diceResultMathElement.textContent : '';
 
     // Dice Result Total
-    const diceResultTotalElement = liElement.querySelector('[class*="DiceMessage_Total"] span');
+    const diceResultTotalElement = liElement.querySelector('[class*="DiceMessage_Total_"] span');
     const diceResultTotal = diceResultTotalElement ? diceResultTotalElement.textContent : '';
 
     // Character
