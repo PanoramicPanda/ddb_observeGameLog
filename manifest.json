@@ -4,7 +4,7 @@
   "summary": "A Symbiote to watch the D&D Beyond Game Log from a Campaign and report the rolls into TaleSpire.",
   "entryPoint": "/index.html",
   "descriptionFilePath": "/README.md",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "about": {
     "website": "https://github.com/PanoramicPanda/ddb_observeGameLog",
     "authors": [
