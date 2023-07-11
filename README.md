@@ -6,11 +6,12 @@ for groups who may not have all members within TaleSpire - to allow folks to rol
 have the results ported to where those in TaleSpire can see the result in the in software chat log.
 
 # Loading into TaleSpire
-Place the `ddb_observeGameLog` folder into `%AppData%\..\LocalLow\BouncyRock Entertainment\TaleSpire\Symbiotes\`.
-Upon loading TaleSpire's Symbiotes, you will see one labeled **D&D Beyond Game Log Observer**.
+Use the in-game mod browser to install "D&D Beyond Game Log Oberserver". Should have `PanoramicPanda's` in the logo 😁. For
+install instructions on how to get to the Mod Browser, see the official docs here - [https://symbiote-docs.talespire.com/user_docs.html](https://symbiote-docs.talespire.com/user_docs.html).
 
 # Usage
-When loaded up, the Symbiote will attempt to load directly to https://www.dndbeyond.com/my-campaigns.
+When loaded up, the Symbiote will first load onto a landing page to tell you some of the common issues,
+pitfalls, and usage instructions. Clicking the button will attempt to load directly to https://www.dndbeyond.com/my-campaigns.
 You'll likely need to login, and perhaps prove you're human to D&D Beyond.
 You can then navigate to the campaign you wish to observe and open up the Game Log.
 
