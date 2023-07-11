@@ -17,14 +17,33 @@ function observeGameLog() {
                         if (!(rollTarget === 'to: self') && !(rollTarget === 'to: dm') && !(roll.diceRoll === '')) {
                             let diceRoll = roll.diceRoll;
                             let color = "<color=\"white\">";
-                            if (diceRoll.includes('d20')) {
-                                let diceResultExpression = roll.diceResultMath;
-                                let firstNumberString = diceResultExpression.split(' ')[0]; // Split the string by space and take the first element
-                                let firstNumber = parseInt(firstNumberString, 10); // Convert the string to a number
 
-                                if (firstNumber === 20) {
+                            let firstNumber, secondNumber, selectedNumber;
+                            if (diceRoll.includes('d20')) { // determine if it crit or crit failed
+                                let diceResultExpression = roll.diceResultMath;
+
+                                if (diceRoll.includes('kh1') || diceRoll.includes('kl1')) { // Check if diceRoll is using Adv or DisAdv
+                                    const numbersInParentheses = diceResultExpression.match(/\((\d+),\s*(\d+)\)/);
+                                    if (numbersInParentheses) { //Get both numbers
+                                        firstNumber = parseInt(numbersInParentheses[1],10);
+                                        secondNumber = parseInt(numbersInParentheses[2],10);
+
+                                        if (diceRoll.includes('kh1')) { //determine which to keep
+                                            selectedNumber = Math.max(firstNumber, secondNumber);
+                                        } else {
+                                            selectedNumber = Math.min(firstNumber, secondNumber);
+                                        }
+                                    }
+
+                                }else{
+                                    let firstNumberString = diceResultExpression.split(' ')[0]; // Split the string by space and take the first element
+                                    selectedNumber = parseInt(firstNumberString, 10); // Convert the string to a number
+                                }
+
+
+                                if (selectedNumber === 20) {
                                     color = "<color=\"green\">"; // Sets color to Green if a natural 20 is rolled
-                                } else if (firstNumber === 1) {
+                                } else if (selectedNumber === 1) {
                                     color = "<color=\"red\">"; // Sets color to Red if a natural 1 is rolled
                                 }
                             }
