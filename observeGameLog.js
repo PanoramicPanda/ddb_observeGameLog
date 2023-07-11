@@ -12,24 +12,27 @@ function observeGameLog() {
                     const diceMessageElement = addedLi.querySelector('[class*="DiceMessage_Pending"]');
                     if (!diceMessageElement) {
                         const roll = extractDataFromLi(addedLi);
+                        const rollTarget = roll.rollTarget.toLowerCase();
 
-                        let diceRoll = roll.diceRoll;
-                        let color = "<color=\"white\">";
-                        if (diceRoll.includes('d20')) {
-                            let diceResultExpression = roll.diceResultMath;
-                            let firstNumberString = diceResultExpression.split(' ')[0]; // Split the string by space and take the first element
-                            let firstNumber = parseInt(firstNumberString, 10); // Convert the string to a number
+                        if (!(rollTarget === 'to: self') && !(rollTarget === 'to: dm')) {
+                            let diceRoll = roll.diceRoll;
+                            let color = "<color=\"white\">";
+                            if (diceRoll.includes('d20')) {
+                                let diceResultExpression = roll.diceResultMath;
+                                let firstNumberString = diceResultExpression.split(' ')[0]; // Split the string by space and take the first element
+                                let firstNumber = parseInt(firstNumberString, 10); // Convert the string to a number
 
-                            if (firstNumber === 20) {
-                                color = "<color=\"green\">"; // Sets color to Green if a natural 20 is rolled
-                            } else if (firstNumber === 1) {
-                                color = "<color=\"red\">"; // Sets color to Red if a natural 1 is rolled
+                                if (firstNumber === 20) {
+                                    color = "<color=\"green\">"; // Sets color to Green if a natural 20 is rolled
+                                } else if (firstNumber === 1) {
+                                    color = "<color=\"red\">"; // Sets color to Red if a natural 1 is rolled
+                                }
                             }
-                        }
 
-                        TS.symbiote.sendNotification(roll.character, "<align=\"center\">" + roll.rollAction + " " + roll.rollType +
-                            "\n<size=200%>" + color + roll.diceResultTotal + "</color>\n<size=90%>" + roll.diceRoll + "  (" + roll.diceResultMath + ")");
-                        console.log(roll);
+                            TS.symbiote.sendNotification(roll.character, "<align=\"center\">" + roll.rollAction + " " + roll.rollType +
+                                "\n<size=200%>" + color + roll.diceResultTotal + "</color>\n<size=90%>" + roll.diceRoll + "  (" + roll.diceResultMath + ")");
+                            console.log(roll);
+                        }
                     }
                 }
             }
@@ -90,13 +93,18 @@ function extractDataFromLi(liElement) {
     const rollTypeElement = liElement.querySelector('[class*="DiceMessage_RollType"]');
     const rollType = rollTypeElement ? capitalizeWords(rollTypeElement.textContent) : '';
 
+    // Roll Target
+    const rollTargetElement = liElement.querySelector('[class*="DiceMessage_Target"]');
+    const rollTarget = rollTargetElement ? capitalizeWords(rollTargetElement.textContent) : '';
+
     return {
         diceRoll,
         diceResultMath,
         diceResultTotal,
         character,
         rollAction,
-        rollType
+        rollType,
+        rollTarget
     };
 }
 
