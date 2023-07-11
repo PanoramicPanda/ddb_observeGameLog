@@ -14,7 +14,7 @@ function observeGameLog() {
                         const roll = extractDataFromLi(addedLi);
                         const rollTarget = roll.rollTarget.toLowerCase();
 
-                        if (!(rollTarget === 'to: self') && !(rollTarget === 'to: dm')) {
+                        if (!(rollTarget === 'to: self') && !(rollTarget === 'to: dm') && !(roll.diceRoll === '')) {
                             let diceRoll = roll.diceRoll;
                             let color = "<color=\"white\">";
                             if (diceRoll.includes('d20')) {
