@@ -4,11 +4,12 @@
   "summary": "A Symbiote to watch the D&D Beyond Game Log from a Campaign and report the rolls into TaleSpire.",
   "entryPoint": "/index.html",
   "descriptionFilePath": "/README.md",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "about": {
     "website": "https://github.com/PanoramicPanda/ddb_observeGameLog",
     "authors": [
-      "Uriah H. Brown"
+      "Uriah H. Brown",
+      "Alex Saurber"
     ]
   },
   "api": {
@@ -31,6 +32,8 @@
     ],
     "extras": [
       "/observeGameLog.js",
+      "/fullscreen_log.js",
+      "/fullscreen_style.css",
       "colorStyles"
     ]
   }
