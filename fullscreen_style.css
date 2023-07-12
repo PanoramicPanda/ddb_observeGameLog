@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900); .dice-icon-die {
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900);
+.dice-icon-die {
     height: 32px;
     width: 32px;
     display: inline-block;
@@ -362,7 +363,7 @@
     opacity: 1
 }
 
-html,body,body>div:first-child {
+html,body>div:first-child {
     width: 100%;
     height: 100%
 }
@@ -883,7 +884,7 @@ a.DiceThumbnails_SetPreviewCallToAction__3MdHE {
     color: #6f7478
 }
 
-.GameLog_GameLogContainer__2YlSC,.GameLog_GameLog__2z_HZ {
+.GameLog_GameLogContainer__2YlSC {
     width: 100%;
     height: 100%;
     color: #5c7080;
@@ -896,6 +897,10 @@ a.DiceThumbnails_SetPreviewCallToAction__3MdHE {
 }
 
 .GameLog_GameLog__2z_HZ {
+    width: 100%;
+    height: 95%;
+    color: #5c7080;
+    background: #191919;
     display: flex;
     flex-flow: column-reverse nowrap;
     overscroll-behavior: contain;
