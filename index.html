@@ -6,13 +6,16 @@
     <title>D&D Beyond Log Observer Preamble</title>
     <script>
         function loadExternalPage() {
-            window.location.href = 'https://www.dndbeyond.com/my-campaigns';
+            // window.location.href = 'https://www.dndbeyond.com/my-campaigns';
+            window.location.href = 'dndbeyond.html';
         }
     </script>
     <style>
         body {
             color: white;
             background: black;
+            padding-left: 10px;
+            padding-right: 10px;
         }
         h2{
             color: var(--ts-accent-hover);
@@ -81,5 +84,6 @@
     <br/>
     <button onclick="loadExternalPage()">I'm ready boss, take me to D&D Beyond</button>
 </div>
+<img class='ddbo_icon' src='ddbo.png'/>
 </body>
 </html>
