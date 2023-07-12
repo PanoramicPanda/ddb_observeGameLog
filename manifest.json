@@ -31,10 +31,12 @@
       "runInBackground"
     ],
     "extras": [
+      "colorStyles",
+      "fonts",
       "/observeGameLog.js",
       "/fullscreen_log.js",
       "/fullscreen_style.css",
-      "colorStyles"
+      "/TS_font.css"
     ]
   }
 }
