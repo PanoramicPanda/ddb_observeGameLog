@@ -17,6 +17,9 @@
         h2{
             color: var(--ts-accent-hover);
         }
+        h3{
+            color: var(--ts-accent-hover);
+        }
         button, input {
             background-color: var(--ts-background-secondary);
             color: var(--ts-color-primary);
@@ -53,33 +56,55 @@
             background-color: var(--ts-button-hover);
         }
         img{margin: 0 auto; padding: 10px;}
+        sub{text-align: right; width: 100%;display:block;}
     </style>
 </head>
 <body>
 <div id="textDiv">
+    <sub>v1.0.7</sub>
     <h1>Utilizing the Symbiote</h1>
-
     After logging in and navigating to the My Campaigns page, you'll need to go to the campaign in question and open up the Game Log.
     <br/>
 
     <img src='example_images/game_log.png'/>
 
     <br/>
-    Once it is opened, the Symbiote should attach to the Log and report any D&D Beyond rolls from it into the TaleSpire Chat Log. The Symbiote even has permission to run in the background and will not need to stay open on your screen in order to report, so long as you don't close it from running overall.
+    <p>Once it is opened, the Symbiote should attach to the Log and report any D&D Beyond rolls from it into the TaleSpire Chat Log. The Symbiote even has permission to run in the background and will not need to stay open on your screen in order to report, so long as you don't close it from running overall.</p>
+
+    <p>You'll know when it's detected properly when the <b>Game Log takes up the full Symbiote</b> and goes into <b>Dark Mode</b>.</p>
 
     <hr>
 
-    <h2>Warning: Login Issues</h2>
-
-    Symbiotes are currently being detected as a not supported browser by some login methods. They also do not support pop-up logins such as Google. Logging in with a Wizard's account seems to be the most successful way at the moment.
-
-    <h2>Warning: Other D&D Beyond Symbiotes</h2>
-
-    It appears that sometimes having D&D Beyond open in another Symbiote will break the Log Observer. If this happens, try closing the other Symbiote. (Note that I could not replicate this but have had it reported)
-    
+    <h2>Having Issues?</h2>
+    <h3>It's not letting me log in</h3>
+    <p>Symbiotes are currently being detected as a not supported browser by some login methods. They also do not support pop-up logins such as Google. Logging in with a Wizard's account seems to be the most successful way at the moment. This will hopefully be resolved in the future.</p>
+    <h3>I clicked the Game Log button, but it's still not working!</h3>
+    <p>Are you on the correct page? This only works on the main campaign page for your D&D Beyond campaign (The one where you see all the characters in the campaign). This is intentional.</p>
+    <p>Try clicking somewhere else on the page other than the Game Log and click the Game Log button again. Sometimes it will not load correctly if D&D Beyond has not finished loading the Game Log in the background when you get to your campaign page.</p>
+    <h3>I accidentally clicked on the wrong campaign page Game Log and now there are no links on the page. How do I go back to find the right one?</h3>
+    <p>Just use the navigation controls in the top right of the symbiote panel. You will see controls for Back, Refresh, and Forward. Refresh the page or go back.</p>
     <br/>
     <br/>
+
     <button onclick="loadExternalPage()">I'm ready boss, take me to D&D Beyond</button>
+
+    <br/>
+    <br/>
+
+    <details>
+        <summary>Changelog</summary>
+        <ul>
+            <li><b>v1.0.7</b> - Added Changelog and Redid Landing Page/Readme</li>
+            <li><b>v1.0.6</b> - Fix Adv/Dis 20/1 highlighting</li>
+            <li><b>v1.0.5</b> - Don't Populate Old Rolls</li>
+            <li><b>v1.0.4</b> - Filter out Self/To DM Rolls</li>
+            <li><b>v1.0.3</b> - Fullscreen & Dark Mode</li>
+            <li><b>v1.0.2</b> - Fixed Adv/Dis Roll Display</li>
+            <li><b>v1.0.1</b> - Added landing page</li>
+            <li><b>v1.0.0</b> - Initial Release</li>
+        </ul>
+    </details>
+
 </div>
 </body>
 </html>

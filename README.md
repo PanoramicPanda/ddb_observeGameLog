@@ -21,6 +21,20 @@ Once the Game Log is opened, that's it! Any roll in made in D&D Beyond within th
 the TaleSpire Chat Log. The Symbiote even has permission to run in the background and will not need to stay open on
 your screen in order to report, so long as you don't close it from running overall.
 
+You'll know when it's detected properly when the **Game Log takes up the full Symbiote** and goes into **Dark Mode**.
+
+# Having Issues?
+##  It's not letting me log in.
+Symbiotes are currently being detected as a not supported browser by some login methods. They also do not support pop-up logins such as Google. Logging in with a Wizard's account seems to be the most successful way at the moment. This will hopefully be resolved in the future.
+
+## I clicked the Game Log button, but it's still not working!
+Are you on the correct page? This only works on the main campaign page for your D&D Beyond campaign (The one where you see all the characters in the campaign). This is intentional.
+
+Try clicking somewhere else on the page other than the Game Log and click the Game Log button again. Sometimes it will not load correctly if D&D Beyond has not finished loading the Game Log in the background when you get to your campaign page.
+
+## I accidentally clicked on the wrong campaign page Game Log and now there are no links on the page. How do I go back to find the right one?
+
+Just use the navigation controls in the top right of the symbiote panel. You will see controls for Back, Refresh, and Forward. Refresh the page or go back.
 
 # Examples
 ## Natural 1
