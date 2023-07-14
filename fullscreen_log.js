@@ -2,6 +2,8 @@
 // When the Game Log button is clicked, move the Game Log list, duplicate the necessary CSS
 // references, inject the modified ones, and remove the unused page elements.
 
+var isGameLogExpanded = false;
+
 async function onStateChangeEvent(msg) {
 	if (msg.kind === "hasInitialized") {
 		// API finished loading, which means the page is also finished loading
@@ -54,15 +56,26 @@ async function onStateChangeEvent(msg) {
 			const html_tag = document.querySelector("html");
 			html_tag.insertAdjacentElement("afterbegin", css_ref);
 
+
 			// Function that removes page elements
 			async function destroy_page() {
-				// Lets wait a short time to allow the pop-up game log element to load
-				await new Promise(resolve => setTimeout(resolve,  500));
+
+				// Lets wait for the log element to load before we do anything
+				var isLogLoaded = false;
+				let getLog = null;
+				while (!isLogLoaded) { 
+					await new Promise(resolve => setTimeout(resolve, 1));
+					getLog = document.querySelector('ol');
+					if ((getLog != null) && (getLog.className === "GameLog_GameLogEntries__3oNPD")) {
+						console.log("D&D Beyond Game Log Observer Symbiote: Log loaded");
+						isLogLoaded = true;
+					};
+				};
 
 				// DESTROY THE PAGE //
 				console.log("D&D Beyond Game Log Observer Symbiote: Decimating page");
 
-				const log_div = document.querySelector("ol").parentNode;
+				const log_div = await document.querySelector("ol").parentNode;
 				html_tag.insertAdjacentElement("beforeend", log_div);
 
 				// Remove document body
@@ -106,6 +119,17 @@ async function onStateChangeEvent(msg) {
 				console.log("D&D Beyond Game Log Observer Symbiote: Now observing log...");
 				
 			};
-		}
-	}
+
+			// function for writing page state to JSON
+			// function write_JSON() {
+			// 	const json = 
+			// 	const obj = JSON.parse()
+			// }
+
+			// Handler for checking symbiote state and controlling banner
+			// function banner_control() {
+
+			// };
+		};
+	};
 };
