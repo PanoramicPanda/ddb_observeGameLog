@@ -64,6 +64,7 @@ async function onStateChangeEvent(msg) {
 				var isLogLoaded = false;
 				let getLog = null;
 				while (!isLogLoaded) { 
+					// Must add delay or you crash. Ask me how I know
 					await new Promise(resolve => setTimeout(resolve, 1));
 					getLog = document.querySelector('ol');
 					if ((getLog != null) && (getLog.className === "GameLog_GameLogEntries__3oNPD")) {
@@ -118,18 +119,22 @@ async function onStateChangeEvent(msg) {
 				iframe_div.insertAdjacentElement("afterbegin", new_iframe);
 				console.log("D&D Beyond Game Log Observer Symbiote: Now observing log...");
 				
+				// Mark the flag that we finished loading and expanding the log
+				isGameLogExpanded = true;
 			};
-
-			// function for writing page state to JSON
-			// function write_JSON() {
-			// 	const json = 
-			// 	const obj = JSON.parse()
-			// }
-
-			// Handler for checking symbiote state and controlling banner
-			// function banner_control() {
-
-			// };
 		};
 	};
 };
+
+
+
+
+function set_banner_state(x) {
+
+};
+
+function check_should_show_banner() {
+	isGameLogExpanded && isObservingGameLog ? set_banner_state(true) : set_banner_state(false);
+};
+
+setInterval(check_should_show_banner, 5000);
