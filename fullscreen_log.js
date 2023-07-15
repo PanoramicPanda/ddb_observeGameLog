@@ -3,7 +3,7 @@
 // references, inject the modified ones, and remove the unused page elements.
 
 var isGameLogExpanded = false;
-var noisey_logs = true;
+var noisey_logs = false;
 
 async function onStateChangeEvent(msg) {
 	if (msg.kind === "hasInitialized") {
