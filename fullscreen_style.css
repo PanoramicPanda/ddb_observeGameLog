@@ -902,7 +902,9 @@ a.DiceThumbnails_SetPreviewCallToAction__3MdHE {
     flex-flow: column-reverse nowrap;
     transform: translateZ(0);
     padding: 0 10px;
-    list-style-type: none
+    padding-right: 0 5px;
+    list-style-type: none;
+    width: 100%;
 }
 
 .GameLog_GameLogEntries__3oNPD>li:last-child {
@@ -935,18 +937,38 @@ a.DiceThumbnails_SetPreviewCallToAction__3MdHE {
 
 .GameLog_GameLog__2z_HZ {
     width: 100%;
-    flex: 1 1 auto;
+    flex: auto;
     color: #5c7080;
     background: #191919;
     display: flex;
     flex-flow: column-reverse nowrap;
     overscroll-behavior: contain;
-    overflow: auto
+    overflow: auto;
+
 }
+
+
+.GameLog_GameLog__2z_HZ::-webkit-scrollbar {
+    width: 18px;
+}
+
+.GameLog_GameLog__2z_HZ::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset 0 0 12px rgba(0,0,0,0.3);  */
+    border-radius: 6px;
+}
+ 
+.GameLog_GameLog__2z_HZ::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    -webkit-box-shadow: inset 0 0 12px rgba(0,0,0,0.5); 
+    background-color: #28292c;
+    border: 1px solid #5c7080;
+}
+
 
 /* ############### BANNER STYLE ############### */
 
 .box {
+    background: #191919;
     display: flex;
     flex-flow: column;
     height: 100%;
@@ -955,10 +977,13 @@ a.DiceThumbnails_SetPreviewCallToAction__3MdHE {
 
 .observer_banner {
     background: #191919;
-    flex: 0 1 60px;
+    flex: auto;
     width: 100%;
-    margin: 0;
     max-height: 60px;
+    transition: height 0.15s;
+    border: 0px solid #5c7080;
+    border-radius: 10px;
+
 }
 
 .observer_iframe {
