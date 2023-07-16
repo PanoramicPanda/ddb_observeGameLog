@@ -3,13 +3,14 @@
 // references, inject the modified ones, and remove the unused page elements.
 
 var isGameLogExpanded = false;
+var noisey_logs = false;
 
 async function onStateChangeEvent(msg) {
 	if (msg.kind === "hasInitialized") {
 		// API finished loading, which means the page is also finished loading
 
 		// Get host and page file name
-		console.log("D&D Beyond Game Log Observer Symbiote: Getting host and page data")
+		noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Getting host and page data") : null;
 		const host_name = window.location.hostname;
 		const page_name = window.location.pathname.split("/").pop();
 		
@@ -20,10 +21,10 @@ async function onStateChangeEvent(msg) {
 			
 			// Store the path somewhere that won't get wiped
 			await TS.localStorage.global.setBlob(local_path);
-			console.log("D&D Beyond Game Log Observer Symbiote: Local data path stored")
+			noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Local data path stored") : null;
 		};
 
-		console.log("D&D Beyond Game Log Observer Symbiote: Page loaded, ", this.window.location.href);
+		noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Page loaded, ", this.window.location.href) : null;
 
 		// Create regex that looks for a campaign page
 		const re = new RegExp("https:\/\/www.dndbeyond.com\/campaigns\/.*");
@@ -31,7 +32,7 @@ async function onStateChangeEvent(msg) {
 
 		// If we are on a campaign page
 		if (current_url.match(re)) {
-			console.log("D&D Beyond Game Log Observer Symbiote: Campaign Page Loaded")
+			noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Campaign Page Loaded") : null;
 
 			// Find buttons on campaigns page
 			const button_arr = document.querySelectorAll("button");
@@ -42,7 +43,7 @@ async function onStateChangeEvent(msg) {
 				var element = button_arr[i];
 				if (element.className == "gamelog-button") {
 					element.addEventListener("mousedown", destroy_page);
-					console.log("D&D Beyond Game Log Observer Symbiote: Game Log button event listener added");
+					noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Game Log button event listener added") : null;
 					break;
 				};
 			};
@@ -68,13 +69,13 @@ async function onStateChangeEvent(msg) {
 					await new Promise(resolve => setTimeout(resolve, 1));
 					getLog = document.querySelector('ol');
 					if ((getLog != null) && (getLog.className === "GameLog_GameLogEntries__3oNPD")) {
-						console.log("D&D Beyond Game Log Observer Symbiote: Log loaded");
+						noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Log loaded") : null;
 						isLogLoaded = true;
 					};
 				};
 
 				// DESTROY THE PAGE //
-				console.log("D&D Beyond Game Log Observer Symbiote: Decimating page");
+				noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Decimating page") : null;
 
 				const log_div = await document.querySelector("ol").parentNode;
 				html_tag.insertAdjacentElement("beforeend", log_div);
@@ -92,7 +93,7 @@ async function onStateChangeEvent(msg) {
 
 				// Scroll to end of game log
 				log_div.scrollTop = log_div.scrollHeight;
-				console.log("D&D Beyond Game Log Observer Symbiote: Cleanup complete");
+				noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Cleanup complete") : null;
 
 				// CREATE THE OBSERVER BANNER //
 				
@@ -104,12 +105,13 @@ async function onStateChangeEvent(msg) {
 				
 				// Get stored path
 				const local_path = await TS.localStorage.global.getBlob();
-				console.log("D&D Beyond Game Log Observer Symbiote: Retrieved local data");
+				noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Retrieved local data") : null;
 				
 				// Create new div to hold/format iframe
-				console.log("D&D Beyond Game Log Observer Symbiote: Creating banner container");
+				noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Creating banner container") : null;
 				const iframe_div = document.createElement("div");
-				iframe_div.className = 'observer_banner'
+				iframe_div.className = 'observer_banner';
+				iframe_div.style.height = '0px';
 				flex_div.insertAdjacentElement('afterbegin', iframe_div);
 				
 				// Make iframe for embedded page
@@ -117,7 +119,7 @@ async function onStateChangeEvent(msg) {
 				new_iframe.src = local_path + 'banner.html';
 				new_iframe.className = 'observer_iframe';
 				iframe_div.insertAdjacentElement("afterbegin", new_iframe);
-				console.log("D&D Beyond Game Log Observer Symbiote: Now observing log...");
+				noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Now observing log...") : null;
 				
 				// Mark the flag that we finished loading and expanding the log
 				isGameLogExpanded = true;
@@ -126,15 +128,24 @@ async function onStateChangeEvent(msg) {
 	};
 };
 
-
-
-
-function set_banner_state(x) {
-
+function set_banner_state() {
+	let banner_div = document.getElementsByClassName('observer_banner')[0];
+	let show_banner = isGameLogExpanded && isObservingGameLog;
+	if (!(banner_div === undefined) && !(banner_div === null)) {
+		if (show_banner) {
+			if (banner_div.style.height === '0px') {
+				banner_div.style.height = '60px';
+				banner_div.style.border = '1px solid #5c7080';
+				noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Showing banner") : null;
+			};
+		} else {
+			if (banner_div.style.height === '60px') {
+				banner_div.style.height = '0px';
+				banner_div.style.border = '';
+				noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Hiding banner") : null;
+			};
+		};
+	};
 };
 
-function check_should_show_banner() {
-	isGameLogExpanded && isObservingGameLog ? set_banner_state(true) : set_banner_state(false);
-};
-
-setInterval(check_should_show_banner, 5000);
+setInterval(set_banner_state, 5000);
