@@ -41,7 +41,7 @@ async function onStateChangeEvent(msg) {
 			// Find the game log button and add an event listener that waits for it to be clicked
 			for (var i = 0; i < button_arr_len; i++) {
 				var element = button_arr[i];
-				if (element.className == "gamelog-button") {
+				if (element.className.includes("gamelog-button")) {
 					element.addEventListener("mousedown", destroy_page);
 					noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Game Log button event listener added") : null;
 					break;
@@ -68,7 +68,7 @@ async function onStateChangeEvent(msg) {
 					// Must add delay or you crash. Ask me how I know
 					await new Promise(resolve => setTimeout(resolve, 1));
 					getLog = document.querySelector('ol');
-					if ((getLog != null) && (getLog.className === "GameLog_GameLogEntries__3oNPD")) {
+					if ((getLog != null) && (getLog.className.includes("GameLogEntries"))) {
 						noisey_logs ? console.log("D&D Beyond Game Log Observer Symbiote: Log loaded") : null;
 						isLogLoaded = true;
 					};
